@@ -1,0 +1,14 @@
+h1.title{
+  height: 50;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: block;
+  background-color: rgba(22, 160, 133,1.0);
+  text-transform: uppercase;
+  font-family: Arial;
+  font-size: 3em;
+  font-weight: 700;
+  text-align:center;
+  color: white;
+
+}
