@@ -19,3 +19,43 @@ h1.title{
       overflow: auto;
       text-align: center;
 }
+
+#mytabletitle{
+  color: Black;
+  font-family: Arial;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  text-align: center;
+  font-size: 2em;
+}
+
+table{
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  text-align: center;
+}
+
+th.text{
+  color: Black;
+  font-family: Arial;
+  text-align: center;
+}
+
+
+td.num{
+  color: Black;
+  font-family: Arial;
+  text-align: center;
+}
+
+td.num_new{
+  color: rgba(231, 76, 60,1.0);
+  font-weight: bold;
+  font-family: Arial;
+  text-align: center;
+}

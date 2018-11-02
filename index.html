@@ -1,23 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HIN2018DataflowMonitor</title>
+  <title>HI2018DataflowMonitor</title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 
 <!-- <h1>My Online Monitor</h1> -->
 <!-- Header -->
 <header>
-  <h1 class="title">HIN2018 Dataflow Monitor</h1>
+  <h1 class="title">HI2018 Dataflow Monitor</h1>
 </header>
 
 <body>
 
-<!--  my table  -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<div id="mytable"></div>
-<script src="js/mytable1.js"></script>
+<!-- google sheet -->
+<h2 id="mytabletitle"> Fill&Run Info </h2>
+<table>
+<thead>
+  <th class="text"></th>
+  <th class="text">Fill</th>
+  <th class="text">Run</th>
+  <th class="text">Run Start</th>
+  <th class="text">Run End</th>
+  <th class="text">L1 Rate(Hz)</th>
+  <th class="text">HIMinimumBias0(Hz)</th>
+  <th class="text">HIMinimumBias1(Hz)</th>
+  <th class="text">HISingleMuon(Hz)</th>
+  <th class="text">HIDoubleMuon(Hz)</th>
+  <th class="text">HIHardProbes(Hz)</th>
+  <th class="text">HIHeavyFlavor(Hz)</th>
+  <th class="text">HIHighMultiplicityETTAsym(Hz)</th>
+</thead>
+<tbody sheetsu="https://sheetsu.com/apis/v1.0su/5a1fab58769f" sheetsu-limit="100">
+  <tr>
+    <td class="num_new">{{new}}</td>
+    <td class="num">{{Fill}}</td>
+    <td class="num">{{Run}}</td>
+    <td class="num">{{Run Start}}</td>
+    <td class="num">{{Run End}}</td>
+    <td class="num">{{L1 Rate(Hz)}}</td>
+    <td class="num">{{HIMinimumBias0(Hz)}}</td>
+    <td class="num">{{HIMinimumBias1(Hz)}}</td>
+    <td class="num">{{HISingleMuon(Hz)}}</td>
+    <td class="num">{{HIDoubleMuon(Hz)}}</td>
+    <td class="num">{{HIHardProbes(Hz)}}</td>
+    <td class="num">{{HIHeavyFlavor(Hz)}}</td>
+    <td class="num">{{HIHighMultiplicityETTAsym(Hz)}}</td>
+  </tr>
+</tbody>
+</table>
+
+<!-- <script src="//load.sheetsu.com"></script> -->
+<script src="js/sheetsu.js"></script>
 
 
 <!-- Raw data mychart1 -->
