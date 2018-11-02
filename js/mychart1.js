@@ -2,7 +2,7 @@ var dates = [
   "11/4","11/5","11/6","11/7","11/8","11/9","11/10","11/11","11/12","11/13","11/14","11/15","11/16","11/17","11/18","11/19","11/20","11/21","11/22","11/23","11/24","11/25","11/26","11/27","11/28","11/29","11/30"
 ];
 
-var rawtotal = [100,200,300,400,500];
+var rawtotal = [100,200,300,400,600];
 
 var rawspectra = [0,20,30,40,50];
 
@@ -14,9 +14,51 @@ var rawdimuon = [0,20,30,40,50];
 
 var rawfoward = [0,20,30,40,50];
 
+function getcorrb(data){
+  if(data.length==1)
+    return data[0];
+  var i=data.length -1;
+  var xsqsum = 0;
+  var xsum = 0;
+  var xysum = 0;
+  var ysum = 0;
+  var num = 0;
+  while(i>=0){
+    xsqsum += i*i;
+    xsum += i;
+    xysum += i*data[i];
+    ysum += data[i];
+    i--;
+    num++;
+  }
+  var corra = ((xsqsum*ysum)-(xsum*xysum))/(num*xsqsum-xsum*xsum);
+  return corra;
+}
+
+function getcorra(data){
+  if(data.length==1)
+    return data[0];
+  var i=data.length -1;
+  var xsqsum = 0;
+  var xsum = 0;
+  var xysum = 0;
+  var ysum = 0;
+  var num = 0;
+  while(i>=0){
+    xsqsum += i*i;
+    xsum += i;
+    xysum += i*data[i];
+    ysum += data[i];
+    i--;
+    num++;
+  }
+  var corrb = (num*xysum-xsum*ysum)/(num*xsqsum-xsum*xsum);
+  return corrb;
+}
+
 // maintain data above!!!!!!!
 
-var rawtotal_future = [[]];
+var rawtotal_future = [];
 
 var rawspectra_future = [];
 
@@ -28,29 +70,43 @@ var rawdimuon_future = [];
 
 var rawfoward_future = [];
 
-var rawtotalmean = rawtotal[rawtotal.length - 1]/rawtotal.length;
-var rawspectramean = rawspectra[rawtotal.length - 1]/rawtotal.length;
-var rawflowmean = rawflow[rawtotal.length - 1]/rawtotal.length;
-var rawhighptmean = rawhighpt[rawtotal.length - 1]/rawtotal.length;
-var rawdimuonmean = rawdimuon[rawtotal.length - 1]/rawtotal.length;
-var rawfowardmean = rawfoward[rawtotal.length - 1]/rawtotal.length;
+// var rawtotalmean = rawtotal[rawtotal.length - 1]/rawtotal.length;
+// var rawspectramean = rawspectra[rawtotal.length - 1]/rawtotal.length;
+// var rawflowmean = rawflow[rawtotal.length - 1]/rawtotal.length;
+// var rawhighptmean = rawhighpt[rawtotal.length - 1]/rawtotal.length;
+// var rawdimuonmean = rawdimuon[rawtotal.length - 1]/rawtotal.length;
+// var rawfowardmean = rawfoward[rawtotal.length - 1]/rawtotal.length;
+
+// a*i+b;
+var rawtotalcorra = getcorra(rawtotal);
+var rawtotalcorrb = getcorrb(rawtotal);
+// var rawspectracorra = getcorra(rawtotal);
+// var rawspectracorrb = getcorra(rawtotal);
+//
+// var rawtotalcorra = getcorra(rawtotal);
+// var rawtotalcorrb = getcorra(rawtotal);
+//
+// var rawtotalcorra = getcorra(rawtotal);
+// var rawtotalcorrb = getcorra(rawtotal);
+
+
 
 var i;
 for(i=0; i<rawtotal.length; i++){
   rawtotal_future[i]=null;
-  rawspectra_future[i]=null;
-  rawflow_future[i]=null;
-  rawhighpt_future[i]=null;
-  rawdimuon_future[i]=null;
-  rawfoward_future[i]=null;
+  // rawspectra_future[i]=null;
+  // rawflow_future[i]=null;
+  // rawhighpt_future[i]=null;
+  // rawdimuon_future[i]=null;
+  // rawfoward_future[i]=null;
 }
-for(i=rawtotal.length-1; i<dates.length; i++){
-  rawtotal_future[i]= rawtotalmean*(i+1);
-  rawspectra_future[i]= rawspectramean*(i+1);
-  rawflow_future[i]= rawflowmean*(i+1);
-  rawhighpt_future[i]= rawhighptmean*(i+1);
-  rawdimuon_future[i]= rawdimuonmean*(i+1);
-  rawfoward_future[i]= rawfowardmean*(i+1);
+for(i=rawtotal.length-3; i<dates.length; i++){
+  rawtotal_future[i]= rawtotalcorra*i + rawtotalcorrb;
+  // rawspectra_future[i]= rawspectramean*(i+1);
+  // rawflow_future[i]= rawflowmean*(i+1);
+  // rawhighpt_future[i]= rawhighptmean*(i+1);
+  // rawdimuon_future[i]= rawdimuonmean*(i+1);
+  // rawfoward_future[i]= rawfowardmean*(i+1);
 }
 
 
