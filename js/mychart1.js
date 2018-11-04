@@ -23,7 +23,7 @@ function getcorrb(data){
   var xysum = 0;
   var ysum = 0;
   var num = 0;
-  while(i>=0){
+  while(i>=0 && i>=data.length-3){
     xsqsum += i*i;
     xsum += i;
     xysum += i*data[i];
@@ -44,7 +44,7 @@ function getcorra(data){
   var xysum = 0;
   var ysum = 0;
   var num = 0;
-  while(i>=0){
+  while(i>=0 && i>=data.length-3){
     xsqsum += i*i;
     xsum += i;
     xysum += i*data[i];
@@ -59,54 +59,45 @@ function getcorra(data){
 // maintain data above!!!!!!!
 
 var rawtotal_future = [];
-
 var rawspectra_future = [];
-
 var rawflow_future = [];
-
 var rawhighpt_future = [];
-
 var rawdimuon_future = [];
-
 var rawfoward_future = [];
-
-// var rawtotalmean = rawtotal[rawtotal.length - 1]/rawtotal.length;
-// var rawspectramean = rawspectra[rawtotal.length - 1]/rawtotal.length;
-// var rawflowmean = rawflow[rawtotal.length - 1]/rawtotal.length;
-// var rawhighptmean = rawhighpt[rawtotal.length - 1]/rawtotal.length;
-// var rawdimuonmean = rawdimuon[rawtotal.length - 1]/rawtotal.length;
-// var rawfowardmean = rawfoward[rawtotal.length - 1]/rawtotal.length;
 
 // a*i+b;
 var rawtotalcorra = getcorra(rawtotal);
 var rawtotalcorrb = getcorrb(rawtotal);
-// var rawspectracorra = getcorra(rawtotal);
-// var rawspectracorrb = getcorra(rawtotal);
-//
-// var rawtotalcorra = getcorra(rawtotal);
-// var rawtotalcorrb = getcorra(rawtotal);
-//
-// var rawtotalcorra = getcorra(rawtotal);
-// var rawtotalcorrb = getcorra(rawtotal);
+var rawspectracorra = getcorra(rawspectra);
+var rawspectracorrb = getcorrb(rawspectra);
+var rawflowcorra = getcorra(rawflow);
+var rawflowcorrb = getcorrb(rawflow);
+var rawhighptcorra = getcorra(rawhighpt);
+var rawhighptcorrb = getcorrb(rawhighpt);
+var rawdimuoncorra = getcorra(rawdimuon);
+var rawdimuoncorrb = getcorrb(rawdimuon);
+var rawfowardcorra = getcorra(rawfoward);
+var rawfowardcorrb = getcorrb(rawfoward);
+
 
 
 
 var i;
 for(i=0; i<rawtotal.length; i++){
   rawtotal_future[i]=null;
-  // rawspectra_future[i]=null;
-  // rawflow_future[i]=null;
-  // rawhighpt_future[i]=null;
-  // rawdimuon_future[i]=null;
-  // rawfoward_future[i]=null;
+  rawspectra_future[i]=null;
+  rawflow_future[i]=null;
+  rawhighpt_future[i]=null;
+  rawdimuon_future[i]=null;
+  rawfoward_future[i]=null;
 }
 for(i=rawtotal.length-3; i<dates.length; i++){
   rawtotal_future[i]= rawtotalcorra*i + rawtotalcorrb;
-  // rawspectra_future[i]= rawspectramean*(i+1);
-  // rawflow_future[i]= rawflowmean*(i+1);
-  // rawhighpt_future[i]= rawhighptmean*(i+1);
-  // rawdimuon_future[i]= rawdimuonmean*(i+1);
-  // rawfoward_future[i]= rawfowardmean*(i+1);
+  rawspectra_future[i]= rawspectracorra*i + rawspectracorrb;
+  rawflow_future[i]= rawflowcorra*i + rawflowcorrb;
+  rawhighpt_future[i]= rawhighptcorra*i + rawhighptcorrb;
+  rawdimuon_future[i]= rawdimuoncorra*i + rawdimuoncorrb;
+  rawfoward_future[i]= rawfowardcorra*i + rawfowardcorrb;
 }
 
 
@@ -256,7 +247,7 @@ var ctx = document.getElementById("myChart1").getContext("2d");
 var options = {
   title: {
             display: true,
-            text: 'Raw Data Volume in TB',
+            text: 'RAW Data Volume in TB',
             fontSize: 25
           },
   layout: {

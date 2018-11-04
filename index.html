@@ -10,13 +10,16 @@
 <!-- <h1>My Online Monitor</h1> -->
 <!-- Header -->
 <header>
+  <div id="container">
   <h1 class="title">HI2018 Dataflow Monitor</h1>
+  <image src="./image/CMS_logo_May2014.eps" width="10%">
+  </div>
 </header>
 
 <body>
 
 <!-- google sheet -->
-<h2 id="mytabletitle"> Fill&Run Info </h2>
+<h2 id="mytabletitle">Rate Info </h2>
 <table>
 <thead>
   <th class="text"></th>
@@ -24,16 +27,24 @@
   <th class="text">Run</th>
   <th class="text">Run Start</th>
   <th class="text">Run End</th>
-  <th class="text">L1 Rate(Hz)</th>
-  <th class="text">HIMinimumBias0(Hz)</th>
-  <th class="text">HIMinimumBias1(Hz)</th>
-  <th class="text">HISingleMuon(Hz)</th>
-  <th class="text">HIDoubleMuon(Hz)</th>
-  <th class="text">HIHardProbes(Hz)</th>
-  <th class="text">HIHeavyFlavor(Hz)</th>
-  <th class="text">HIHighMultiplicityETTAsym(Hz)</th>
+  <th class="text">L1</th>
+  <th class="text">Minimum Bias0</th>
+  <th class="text">Minimum Bias1</th>
+  <th class="text">Castor</th>
+  <th class="text">Express Alignment</th>
+  <th class="text">Express Physics</th>
+  <th class="text">Single Muon</th>
+  <th class="text">Double Muon</th>
+  <th class="text">Forward</th>
+  <th class="text">HLT Physics</th>
+  <th class="text">Hard Probes</th>
+  <th class="text">Hard Probes Lower</th>
+  <th class="text">Hard Probes Peripheral</th>
+  <th class="text">Heavy Flavor</th>
+  <th class="text">HcalNZS</th>
+  <th class="text">High Multiplicity ETTAsym</th>
 </thead>
-<tbody sheetsu="https://sheetsu.com/apis/v1.0su/5a1fab58769f" sheetsu-limit="100">
+<tbody sheetsu="https://sheetsu.com/apis/v1.0su/5a1fab58769f" sheetsu-limit="20">
   <tr>
     <td class="num_new">{{new}}</td>
     <td class="num">{{Fill}}</td>
@@ -51,6 +62,51 @@
   </tr>
 </tbody>
 </table>
+
+
+<!-- google sheet for raw data-->
+<h2 id="mytabletitle">Reduced Format Info </h2>
+<table>
+<thead>
+  <th class="text"></th>
+  <th class="text">Fill</th>
+  <th class="text">Run</th>
+  <th class="text">Run Start</th>
+  <th class="text">Run End</th>
+  <th class="text"></th>
+  <th class="text">Low Multiplicity Reduced Format</th>
+  <th class="text">MB Reduced Format 0</th>
+  <th class="text">MB Reduced Format 1</th>
+  <th class="text">MB Reduced Format 2</th>
+  <th class="text">MB Reduced Format 3</th>
+  <th class="text">MB Reduced Format 4</th>
+  <th class="text">MB Reduced Format 5</th>
+  <th class="text">MB Reduced Format 6</th>
+  <th class="text">MB Reduced Format 7</th>
+  <th class="text">MB Reduced Format 8</th>
+  <th class="text">MB Reduced Format 9</th>
+  <th class="text">MB Reduced Format 10</th>
+  <th class="text">MB Reduced Format 11</th>
+</thead>
+<tbody sheetsu="https://sheetsu.com/apis/v1.0su/5a1fab58769f" sheetsu-limit="20">
+  <tr>
+    <td class="num_new">{{new}}</td>
+    <td class="num">{{Fill}}</td>
+    <td class="num">{{Run}}</td>
+    <td class="num">{{Run Start}}</td>
+    <td class="num">{{Run End}}</td>
+    <td class="num">{{L1 Rate(Hz)}}</td>
+    <td class="num">{{HIMinimumBias0(Hz)}}</td>
+    <td class="num">{{HIMinimumBias1(Hz)}}</td>
+    <td class="num">{{HISingleMuon(Hz)}}</td>
+    <td class="num">{{HIDoubleMuon(Hz)}}</td>
+    <td class="num">{{HIHardProbes(Hz)}}</td>
+    <td class="num">{{HIHeavyFlavor(Hz)}}</td>
+    <td class="num">{{HIHighMultiplicityETTAsym(Hz)}}</td>
+  </tr>
+</tbody>
+</table>
+
 
 <!-- <script src="//load.sheetsu.com"></script> -->
 <script src="js/sheetsu.js"></script>

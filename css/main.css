@@ -1,13 +1,42 @@
-h1.title{
-  height: 100px;
+#container{
+  margin: auto;
+  /* height: 100px; */
   width: 100%;
-  padding-top: 50px;
+  /* padding-top: 50px; */
   padding-bottom: 50px;
   display: block;
   background-color: rgba(22, 160, 133,1.0);
   text-transform: uppercase;
   font-family: Arial;
+  text-align:center;
+  color: white;
+}
+
+h1.title{
+  height: 100px;
+  width: 100%;
+  padding-top: 50px;
+  /* padding-bottom: 10px; */
+  display: block;
+  /* background-color: rgba(22, 160, 133,1.0); */
+  text-transform: uppercase;
+  font-family: Arial;
   font-size: 3em;
+  font-weight: 700;
+  text-align:center;
+  color: white;
+}
+
+h2.title{
+  height: 100px;
+  width: 100%;
+  /* padding-top: 10px; */
+  /* padding-bottom: 10px; */
+  display: block;
+  /* background-color: rgba(22, 160, 133,1.0); */
+  text-transform: uppercase;
+  font-family: Arial;
+  font-size: 2em;
   font-weight: 700;
   text-align:center;
   color: white;
@@ -44,6 +73,7 @@ th.text{
   color: Black;
   font-family: Arial;
   text-align: center;
+  /* font-size: 1; */
 }
 
 
